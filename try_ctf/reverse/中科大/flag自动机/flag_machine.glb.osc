@@ -1,0 +1,26 @@
+;	User breakpoints, comments, labels and patches saved for debuggee	:	C:\Users\86138\Desktop\try_ctf\reverse\中科大\flag自动机\flag_machine.exe
+;	Have fun
+
+
+;	-### Saved breakpoints ###-
+BP 004014ED
+BD 004014ED ; breakpoint was disabled
+BP 0040157E
+BD 0040157E ; breakpoint was disabled
+BP 004015EB
+BD 004015EB ; breakpoint was disabled
+BP 00401950
+BD 00401950 ; breakpoint was disabled
+BP 74838622
+BD 74838622 ; breakpoint was disabled
+BP 74838625
+BD 74838625 ; breakpoint was disabled
+BP 777E2D80
+BD 777E2D80 ; breakpoint was disabled
+BP 777E2DBC
+BD 777E2DBC ; breakpoint was disabled
+
+;	-### Saved patched ###-
+MOV 7483862B, #73EC#, 2 ; 2
+MOV 7488DFFF, #009D3D98147C#, 6 ; 6
+MOV 777E2DBC, #909090#, 3 ; 3

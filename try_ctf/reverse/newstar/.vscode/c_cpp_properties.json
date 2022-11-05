@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "b:\\hacker\\w64devkit\\bin\\../lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++",
+                "b:\\hacker\\w64devkit\\bin\\../lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/x86_64-w64-mingw32",
+                "b:\\hacker\\w64devkit\\bin\\../lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/backward",
+                "b:\\hacker\\w64devkit\\bin\\../lib/gcc/x86_64-w64-mingw32/12.2.0/include",
+                "b:\\hacker\\w64devkit\\bin\\../lib/gcc/x86_64-w64-mingw32/12.2.0/include-fixed",
+                "b:\\hacker\\w64devkit\\bin\\../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.17763.0",
+            "compilerPath": "B:\\hacker\\w64devkit\\bin\\g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}

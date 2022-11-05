@@ -1,0 +1,9 @@
+[Trace 09:20:02.911] VsCodeClientWorkspace: TextDocument.onDidOpen: file:///home/user/xv6-riscv/LICENSE
+[Trace 09:20:02.911] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/user/xv6-riscv/LICENSE
+[Trace 09:20:02.912] Server: connection.languages.diagnostics.on: file:///home/user/xv6-riscv/LICENSE
+[Trace 09:20:02.916] Server: connection.languages.diagnostics.on: file:///home/user/xv6-riscv/LICENSE
+[Trace 09:20:02.931] DocumentSymbolProvider: provideDocumentSymbols — file:///home/user/xv6-riscv/LICENSE 1
+[Debug 09:20:02.931] LinkProvider: compute - file:///home/user/xv6-riscv/LICENSE
+[Debug 09:20:03.004] TableOfContentsProvider: create - file:///home/user/xv6-riscv/LICENSE
+[Debug 09:20:03.116] MdFoldingProvider: provideFoldingRanges — file:///home/user/xv6-riscv/LICENSE 1
+[Trace 09:20:03.814] Server: connection.languages.diagnostics.on: file:///home/user/xv6-riscv/LICENSE
