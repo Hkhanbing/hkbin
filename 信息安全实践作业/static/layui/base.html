@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>开始使用 layui</title>
+  <link href="./layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+ 
+<!-- 你的 HTML 代码 -->
+ <script src = './layui/layui.js'></script>
+<script>
+layui.config({
+    version:false,
+    debug:false,
+    base:'./layui/exmods/'
+});
+
+
+layui.use(['layer', 'form', 'mod1'], function(){
+  var layer = layui.layer;
+  var form = layui.form;
+  layer.msg(layui.mod1.msg)
+  layer.msg('Hello World');
+});
+
+
+</script> 
+</body>
+</html>

@@ -1,0 +1,35 @@
+body{
+    background-color:rgba(233, 231, 231, 0.899)
+}
+div.form{
+    width:400px;
+    height:520px;
+    background-color:white;
+    margin:auto;
+    margin-top:100px;
+    text-align:center;
+}
+div.form h1{
+    color:rgb(24, 151, 197);
+    font-size:50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top:25px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+}
+div.form h2{
+    color:rgb(21, 144, 189);
+    font-family:'Times New Roman', Times, serif;
+    font-size:20px;
+    margin-top:0px;
+}
+div form{
+    text-align:left;
+    padding-left:50px;
+    padding-right:50px;
+}
+input{
+    background-color:rgba(246, 236, 150, 0.766);
+    width:290px;
+    line-height:1.5em;
+}

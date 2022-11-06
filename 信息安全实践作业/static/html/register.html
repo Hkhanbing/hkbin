@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ASL私人小站</title>
+  <link rel = "shortcut icon" href = "../../layui/layui/images/face/50.gif">
+  <link rel="stylesheet" href="../../layui/layui/css/layui.css">
+  <script src="/js/jquery.js"></script>
+  <script src ="/js/logout.js"></script>
+  <script src = "/js/islogin.js"></script>
+  <style>
+    .bk-login-img{
+        width:100%;
+        height:150px;
+    }
+    .input{
+      margin:0 550px;
+    }
+  </style>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header layui-bg-cyan">
+    <div class="layui-logo layui-hide-xs layui-bg-cyan"><a href = "/index" class = "layui-logo layui-hide-xs layui-bg-cyan">ASL</a></div>
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+        <i class="layui-icon layui-icon-spread-left"></i>
+      </li>
+      
+      <li class="layui-nav-item layui-hide-xs" style="margin-left:150px;"><a href="/index">主页</a></li>
+      <li class="layui-nav-item layui-hide-xs" style="margin-left:50px;"><a href="document">文档</a></li>
+    </ul>
+
+    <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+            <img src="pics/root_user.jpg" class="layui-nav-img">
+          </li>
+        <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+            <a href="javascript:;">language</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">Chinese</a></dd>
+                <dd><a href="">English</a></dd>
+                <dd><a href="">Japanese</a></dd>
+            </dl>
+        </li>
+      <li class="layui-nav-item layui-hide layui-show-md-inline-block layui-this">
+        <a href="login" id = "user">
+            登录
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="" class = 'user'>个人信息</a></dd>
+          <dd><a href="">设置</a></dd>
+          <dd><a href="" class = "logout">登出</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+        <a href="javascript:;">
+          <i class="layui-icon layui-icon-more-vertical"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class = 'bk-login-img' style="background-image:url('../pics/preview.jpg');background-size:cover;background-repeat:no-repeat; text-align:center">
+    <br><br><br>
+    <b style="font-size:28px; color:rgba(253, 248, 242, 0.918)">注册</b>
+</div>
+
+
+<!-- <div style="margin-top:50px;text-align:center">
+    <div style="margin:auto; position:relative;">
+        <label for="name-input" style="font-size:17px;">用户名</label><br><br>
+        <input id="name-input" type="text" name="name" style="width:300px; height:50px;">
+        <br><br>
+        <label for="password-input" style="font-size:17px;">密码</label><br><br>
+        <input id="password-input" type="text" name="password" style="width:300px; height:50px;">
+    </div>
+  </div> -->
+<br>
+<br>
+  <div class="input">
+  <form class = "layui-form" action = "">
+    <div class = "layui-form-item">
+      <label class = "layui-form-label">账号</label>
+      <div class = "layui-input-block">
+        <input type = "text" name = 'user' required lay-verify="required|username" placeholder = "请输入账号" autocomplete="off" class = "layui-input" id ="1">
+      </div>
+    </div>
+    <div class = "layui-form-item">
+      <label class = "layui-form-label">密码</label>
+      <div class = "layui-input-block">
+        <input type ="password" name = "password" required lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class = "layui-input" id = "2">
+      </div>
+    </div>
+    <div class = "layui-form-item">
+        <label class="layui-form-label">确认密码</label>
+        <div class="layui-input-block">
+            <input type = "password" name = "password2" required lay-verify = "confirmPass" placeholder="请确认密码" autocomplete="off" class = "layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        <button class="layui-btn layui-btn-normal" id = "login">登录</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+  <div class="layui-footer">
+  </div>
+</div>
+<script src="../../layui/layui/layui.js"></script>
+
+<script>
+$(function(){
+  $(".user").click(function(e){
+    e.preventDefault()
+    $.ajax({
+      type:'GET',
+      url:'http://127.0.0.1/getname',
+      success:function(res){
+        if(res == "false"){
+          layer.msg("请先登录")
+        }
+        else{
+          top.location.href = "http://127.0.0.1/user"
+        }
+      }
+    })
+  })
+})
+
+
+$(function(){
+  $("#login").click(function(e){
+    e.preventDefault()
+    top.location.href = "http://127.0.0.1/login"
+  })
+})
+
+
+layui.use('form', function(){
+  var form = layui.form
+  form.verify({
+        confirmPass : function(value) {
+            if ($('input[name=password]').val() !== value)
+	        return '两次密码输入不一致！';
+        },
+        username: function(value, item){ //value：表单的值、item：表单的DOM对象
+            if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+            return '用户名不能有特殊字符';
+            }
+            if(/(^\_)|(\__)|(\_+$)/.test(value)){
+            return '用户名首尾不能出现下划线\'_\'';
+            }
+            if(/^\d+\d+\d$/.test(value)){
+            return '用户名不能全为数字';
+            }
+        }
+        ,pass: [
+            /^[\S]{6,12}$/
+            ,'密码必须6到12位，且不能出现空格'
+        ] 
+    })
+  form.on('submit(formDemo)', function(data){
+    $.ajax({
+      type:'POST',
+      data:{
+        username:$("#1").val(),
+        password:$("#2").val()
+      },
+      url:'http://127.0.0.1/register',
+      success:function(res){
+        if(res == "该用户已经注册过")layer.msg("该用户已经注册过")
+        else{
+          layer.msg("注册成功！请前往登录", function(){
+            window.location.href = "http://127.0.0.1/login"
+          })
+        }
+      }
+    })
+    return false
+  });
+});
+
+
+layui.use(['element', 'layer', 'util'], function(){
+  var element = layui.element
+  ,layer = layui.layer
+  ,util = layui.util
+  ,$ = layui.$;
+  
+  //头部事件
+  util.event('lay-header-event', {
+    //左侧菜单事件
+    menuLeft: function(othis){
+      layer.msg('展开左侧菜单的操作', {icon: 0});
+    }
+    ,menuRight: function(){
+      layer.open({
+        type: 1
+        ,content: '<div style="padding: 15px;">处理右侧面板的操作</div>'
+        ,area: ['260px', '100%']
+        ,offset: 'rt' //右上角
+        ,anim: 5
+        ,shadeClose: true
+      });
+    }
+  });
+  
+});
+</script>
+</body>
+</html>
