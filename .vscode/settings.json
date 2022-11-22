@@ -37,5 +37,5 @@
     "string_view": "cpp",
     "bitset": "cpp",
     "fstream": "cpp"
-  }
+  },
 }
