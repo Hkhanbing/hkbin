@@ -1,0 +1,51 @@
+#j         - 24 * ((__int64)(j + ((unsigned __int128)((j + 1) * (__int128)(__int64)0xAAAAAAAAAAAAAAABLL) >> 64) + 1) >> 4)
+
+data = [
+0xA0, 0xA1, 0x83, 0xC0, 0x21, 0x90, 0xF0, 0xC0, 0x20, 0x80, 0xA3, 0xB2, 0xB1, 0x3, 0xC2, 0xA0,
+0xA1, 0xF0, 0x30, 0x91, 0x31, 0x71, 0xF0, 0x77]
+"""
+v7 = j - 24 * ((j + (((j + 1) * 0xAAAAAAAAAAAAAAAB) >> 64) + 1) >> 4);
+"""
+for j in range(23, -1, -1):
+    v9 = j - 24 * ((j + (((j + 1) * 0xAAAAAAAAAAAAAAAB) >> 64) + 1) >> 4)
+    print(v9 + 1)
+    data[j] = data[(v9 + 1 + 24) % 24] ^ data[j]
+
+print(data)
+
+ans = ""
+for j in range(0, 24):
+    for k in range(0, 128):
+        x = ((k & 0xF0) >> 4) | (16 * (k  & 0xF))
+        if(x == data[j]):
+            print(k)
+            ans += chr(k)
+
+print(ans)
+
+
+
+"""SYC{welcome_to_syclover}"""
+# 0x143e68
+
+# f = [0x80,
+# 0xA3,
+# 0xB2,
+# 0xB1,
+# 0x3,
+# 0xC2,
+# 0xA0,
+# 0xA1,
+# 0xF0,
+# 0x30,
+# 0x91,
+# 0x31,
+# 0x71,
+# 0xF0,
+# 0x77]
+
+# 0x21
+# 0x90
+# 0xF0
+# 0xC0
+# 0x20
