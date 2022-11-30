@@ -43,28 +43,45 @@ s.check()
 m = s.model()
 
 flag = ""
+cnt = 0
 for item in m:
+    if cnt == 6:
+        cnt += 1
+        continue
     flag += chr(m[item].as_long())
-
-flag = flag[::-1]
+    cnt += 1
 
 print(flag)
 
 
+import requests
+url = "https://buuoj.cn/challenges#[GUET-CTF2019]re"
+
+headers = {
+    "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+
+}
+cookie = "session=9498898d-b2f8-444b-80bc-49f522d3c7ab.J2B-h6qq3hxQVeTsPk61V4a65a8; next=https://buuoj.cn/"
+
+post_data = {
+    "challenge_id":759,
+    "submission":""
+}
 for ch in range(32, 128):
-    flag = "flag{e65421110b0a3099a1c039337}"  
+    flag = "}73393c1a9903a0b01112456e{galf"  
     flag_list = list(flag)
-    flag_list.insert(17+5, chr(ch))
+    flag_list.insert(6, chr(ch))
     data = ""
     for i in flag_list:
         data += i
-    print(data)
+    # print(data[::-1])
+    post_data["submission"] = data[::-1]
+    resp = requests.post(url, headers = headers, cookies = cookie, data = post_data)
+    print(resp.text)
+    # 麻烦 手动尝试吧
+
 
 
 """
-flag{e65421110b0a3099a1c039337}//这里输出了a1[17]为0
-"""
-
-"""
-题目少给了a1[17] --> 这个爆破尝试把
+题目少给了a1[6] --> 这个爆破尝试把
 """
